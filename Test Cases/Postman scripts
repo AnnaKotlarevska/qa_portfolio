@@ -1,0 +1,35 @@
+// Перевіряємо, чи відповідь успішна
+pm.test("GET Blacklist Status code is 200", function () {
+    pm.response.to.have.status(200);
+});
+
+// Парсимо JSON відповідь від GET-запиту
+const responseJson = pm.response.json();
+
+// Отримуємо масив сендерів з чорного списку
+const blacklistedSenders = responseJson['black-list senders'];
+
+// Перевіряємо, чи масив чорного списку існує та не порожній
+pm.test("Blacklist array exists and is not empty", function () {
+    pm.expect(blacklistedSenders).to.be.an('array');
+    pm.expect(blacklistedSenders).to.not.be.empty;
+});
+
+// Беремо email першого сендера зі списку
+if (blacklistedSenders && blacklistedSenders.length > 0) {
+    const firstBlacklistedSender = blacklistedSenders[0];
+    const senderEmailToRemove = firstBlacklistedSender.email;
+
+    // Перевіряємо, чи email існує
+    pm.test("Email to remove is found", function () {
+        pm.expect(senderEmailToRemove).to.be.a('string');
+        pm.expect(senderEmailToRemove).to.not.be.empty;
+    });
+
+    // Зберігаємо email у змінній середовища Postman
+    pm.environment.set("emailToRemoveFromBlacklist", senderEmailToRemove);
+
+    console.log(`Витягнуто email для видалення з чорного списку: ${senderEmailToRemove}`);
+} else {
+    console.warn("Чорний список порожній або не знайдено.");
+}
