@@ -1,0 +1,54 @@
+{
+  "Test_Cases":
+ {
+   "TestCase_id":"1",
+   "Title":"Attempted deletion of all similar photos by user with Free plan",
+   "Precondition":
+  {
+    "1":"Application downloaded",
+    "2":"The user has allowed access the phone data for app",
+    "3":"The user has several sets of similar photos",
+    "4":"The user does not have a paid subscription",
+    "5":"Home screen is open"
+  },
+   "Steps":
+  {
+    "1":"Click on the "Similar Photos" section",
+    "2":"Press the "Delete" button"
+  },
+   "Expected result":"The plan selection lightbox appears";
+
+   "TestCase_id":"2",
+   "Title":"Delete similar photos, when there are multiple sets of photos, using "Display first" - "Oldest" sorting, without viewing previews ",
+   "Precondition":
+  {
+    "1":"Application downloaded",
+    "2":"The user has allowed access the phone data for app",
+    "3":"The user has several sets of similar photos",
+    "4":"The user has a ""Pro"/"Lite"" plan",
+    "5":"Home screen is open"
+  },
+   "Steps":
+  {
+    "1":"Click on the "Similar Photos" section",
+    "2":"Press the "Display first" button",
+    "3":"Select "Oldest" and click the "Apply" button",
+    "4":"Press the "Deselect All" button",
+    "5":"In the set, select the photo to be deleted and activate the check box on it",
+    "6":"Press the "Delete" button",
+    "7":"In the lightbox that appears, "Are you sure you want to proceed?" click "Delete"",
+    "8":"In the system lightbox that appears, allow deletion of the photo"
+  },
+   "Expected result":
+  {
+    "1":"Photo deleted",
+    "2":"A Success message screen appears: 
+        "Awesome! Your storage optimized by {Xmb} You clean your storage at {X}% 
+        Empty "Recently Deleted" Album on your iPhone to free up {Xmb} space
+        Button "How to empty Recently Deleted"?
+        Button "Got it""",
+    "3":"The home screen displays data with changes to the "Storage" and "Similar Photos"            sections"
+  }
+ }
+}
+
