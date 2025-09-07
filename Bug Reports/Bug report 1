@@ -1,0 +1,22 @@
+Bug Id: Bug 01
+Status: New
+Bug Title: Sorting is not working correctly
+Priority: 
+Severity:
+Description: Sorting by price from the lowest on the "BEST SELLERS" tab is not performed
+Steps To Rreproduce:
+ 1. Open the website http://automationpractice.com/index.php
+ 2. Click on the magnifying glass next to the search bar
+ 3. Scroll through the page and click the "all best sellers" button located under TOP SELLERS
+ 4. Sort by "Price: lowest first"
+Expected Results:
+ 1. Home page is successfuly opened, "POPULAR LIST" is displayed
+ 2. A window opens with the message "Please enter a search keyword"
+ 3. The BEST SELLERS window opens
+ 4. Products are sorted from cheap to expensive
+Actual Results:
+1. Home page is successfuly opened, "POPULAR LIST" is displayed
+2. A window opens with the message "Please enter a search keyword"
+3. The BEST SELLERS window opens
+4. Products are sorted from expensive to cheap
+Attachment:
